@@ -9,13 +9,76 @@
     <meta property="og:description" content="Pavithra J S — B.Com graduate, CA Intermediate candidate and M.Com student with practical exposure to accounting, audit support, reconciliation, GST compliance and financial reporting." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- React & Babel CDNs (Allows running JSX directly in browser without build tools) -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Plus Jakarta Sans', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+              cinzel: ['Cinzel', 'serif'],
+            }
+          }
+        }
+      }
+    </script>
   </head>
   <body class="bg-slate-50 text-slate-800 antialiased selection:bg-slate-800 selection:text-white">
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- React App Component -->
+    <script type="text/babel">
+      const App = () => {
+        return (
+          <div class="min-h-screen flex flex-col justify-between">
+            <!-- Navigation -->
+            <nav class="bg-slate-900 text-white p-6 shadow-md">
+              <div class="max-w-5xl mx-auto flex justify-between items-center">
+                <h1 class="font-cinzel text-xl font-bold tracking-wide">Pavithra J S</h1>
+                <div class="space-x-6 text-sm font-medium">
+                  <a href="#about" class="hover:text-slate-300 transition">About</a>
+                  <a href="#experience" class="hover:text-slate-300 transition">Experience</a>
+                  <a href="#contact" class="hover:text-slate-300 transition">Contact</a>
+                </div>
+              </div>
+            </nav>
+
+            <!-- Hero Section -->
+            <header class="max-w-5xl mx-auto px-6 py-20 text-center">
+              <h1 class="font-serif text-4xl md:text-6xl font-bold text-slate-900 mb-4">
+                Pavithra J S
+              </h1>
+              <p class="text-xl text-slate-600 font-sans max-w-2xl mx-auto mb-8">
+                Accounting & Audit Professional | B.Com Graduate | CA Intermediate Candidate | M.Com Student
+              </p>
+              <p class="text-slate-500 max-w-3xl mx-auto leading-relaxed">
+                Practical exposure to accounting, audit support, bank reconciliation, GST compliance, and financial reporting.
+              </p>
+            </header>
+
+            <!-- Footer -->
+            <footer class="bg-slate-900 text-slate-400 py-6 text-center text-sm">
+              <p>© {new Date().getFullYear()} Pavithra J S. All rights reserved.</p>
+            </footer>
+          </div>
+        );
+      };
+
+      ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
   </body>
 </html>
-
